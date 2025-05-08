@@ -1,225 +1,102 @@
-# محاسبه مجموع اعداد زوج
-status = False
-while not status:
-    number = int(input("enter your Number: "))
-    if number < 1:
-        print("enter a larger number")
-    else:
-        total = 0
-        for num in range(1, number + 1):
-            if num % 2 == 0:
-                total += num
-        print(f"Sum of even numbers: {total}")
-        status = True
+# first project
+class Car:
+    def __init__(self, color, model):
+        self.color = color
+        self.model = model
 
+    def drive(self):
+        return f" The {self.color} Car model {self.model} is driving "
 
-# توضیح: برنامه‌ای بنویسید که از کاربر یه عدد بگیره و مجموع اعداد زوج از 1 تا اون عدد رو حساب کنه.
+    def __str__(self):
+        return f" this is {self.color} Car and it model is {self.model}"
 
 
+pride = Car("red", "pride")
+print(pride)
 
-# مفاهیم: حلقه‌ها، شرط‌ها، عملیات ریاضی.
 
+# second project
+class Student:
+    def __init__(self, name, age, grade):
+        self.name = name
+        self.age = age
+        self.grade = grade
 
+    def study(self):
+        return f"{self.name} has study"
 
-# چاپ الگوی ستاره
+    def increase_grade(self):
+        return f"{self.name} score is {int (self.grade) +1} "
 
 
+Amir = Student("Amir", 20, 18)
+print(Amir.increase_grade())
 
 
+# third project
+class Book:
+    def __init__(self, title, author, pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
 
-# توضیح: برنامه‌ای بنویسید که یه عدد از کاربر بگیره و یه الگوی مثلثی از ستاره‌ها چاپ کنه (مثلاً با 3: *، **، ***).
+    def read(self):
+        return f"The {self.title} is being read"
 
-Number_of_stars = int (input("Enter Number of stars you want to see in triangel form :"))
-for num in range(Number_of_stars):
-    star=""
-    for i in range (num):
-        star+="*"
-    print(star)
+    def __len__(self):
+        return self.pages
 
 
-# مفاهیم: حلقه‌ها، رشته‌ها.
+math = Book("math", "tesla", 354)
+print(math.read())
+print(len(math))
 
 
+# fourth project
+class Clock:
+    def __init__(self, hour, minute):
+        self.hour = hour
+        self.minute = minute
 
-# حدس عدد تصادفی
+    def tick(self):
+        hour = self.hour
+        minute = self.minute
+        minute += 1
+        if minute >= 60:
+            hour += 1
+            minute = 00
+        if hour >= 24:
+            hour = 00
+        return f"time is {hour}:{minute} "
 
+    def __str__(self):
+        return f"time is {self.hour}:{self.minute} "
 
 
+now = Clock(23, 59)
+print(now.tick())
+print(now)
 
 
-# توضیح: برنامه‌ای بنویسید که یه عدد تصادفی بین 1 تا 100 تولید کنه و کاربر باید حدس بزنه (با راهنمایی "بزرگ‌تر" یا "کوچک‌تر").
-import random 
-True_Number= random.randint(1,100)
-while True:
-    guess=int(input("Enter your guess:"))
-    if guess==True_Number:
-        status=True
-        print ("congratulation you guess right")
-        break
-    elif True_Number>guess:
-        print ("you guess a lower number")
-    else:
-        print ("you guess a bigger number ")
+# من این جا برای تمرین خودم از date, datetime استفاده نکردم ولی بهم بگو توی tick چرا 00 رو نشون نداد چیکار کنم از این به بعد نشون بده
+# fivth project
+class Wallet:
+    def __init__(self, owner, money):
+        self.owner = owner
+        self.money = money
 
-# مفاهیم: حلقه‌ها، شرط‌ها، ماژول random.
+    def add_money(self, amount):
+        self.money += amount
+        return f"Money was succesfully deposited \n your amount is {self.money}"
 
+    def spend_money(self, amount):
+        if amount > self.money:
+            return f"not enoph money you have {amount-self.money} less money to pay"
+        else:
+            self.money -= amount
+            return f"your amount is {self.money}"
 
 
-# محاسبه تعداد ارقام عدد
-Num= str(input ("Enter your Number:"))
-print(len(Num))
-
-
-
-# توضیح: برنامه‌ای بنویسید که یه عدد از کاربر بگیره و بگه چند رقم داره.
-
-
-
-# مفاهیم: حلقه‌ها، عملیات ریاضی یا تبدیل به رشته.
-
-
-
-# چک کردن حروف بزرگ و کوچک
-word=str(input("please enter your word:"))
-def info (word):
-    numbers="0123456789"
-    Num,Cap,small=0,0,0
-    for s in word:
-        if s in numbers:
-            Num+=1
-        elif s == s.upper() and s != " ":
-            Cap+=1
-        elif s == s.lower():
-            small+=1
-    return Num,Cap,small
-Num,Cap,small = info(word)
-print("you entered %i capital words and %i small words and %i Numbers"%(Cap,small,Num))
-
-
-
-# توضیح: تابعی بنویسید که یه رشته بگیره و تعداد حروف بزرگ و کوچکش رو بشماره.
-
-
-
-# مفاهیم: رشته‌ها، حلقه‌ها، شرط‌ها.
-
-
-
-# جمع عناصر لیست
-
-
-
-
-
-# توضیح: برنامه‌ای بنویسید که یه لیست از اعداد رو از کاربر بگیره و مجموعشون رو حساب کنه.
-Total=0
-def check (number):
-    true_numbers="0123456789"
-    for i in number:
-        if number not in true_numbers:
-            return False
-            
-    return True
-while True:
-    num=input("please Enter a Number :")
-    if num == "stop":
-        print ("ok ! your Total is %i:"%(Total))
-        break
-    elif check(num) !=True:
-        print ("please do not use the alphabet or anything exept numbers")
-        continue
-    else:
-        Total+=int(num)
-
-
-# مفاهیم: لیست‌ها، حلقه‌ها.
-
-
-
-# پیدا کردن بزرگ‌ترین عدد
-
-
-
-
-
-# توضیح: برنامه‌ای بنویسید که از کاربر 5 عدد بگیره و بزرگ‌ترینشون رو چاپ کنه.
-largest=0
-for i in range (5):
-    num = int(input ("input Enter your number :"))
-    if num>largest:
-        largest=num
-print ("the bigger number in yout number entered is %i "%(largest))
-
-# مفاهیم: شرط‌ها، حلقه‌ها، متغیرها.
-
-
-
-# تبدیل عدد به باینری
-# ترجیه دادم که از تابع تبدیل به باینری استفاده نکنم و برای اینکه قوی تر بشم خودم یه تابع بنویسم که این کار رو انجام بده 
-bi=""
-num=int (input ("please enter your number :"))
-def check (number):
-    true_numbers="0123456789"
-    for i in number:
-        if number not in true_numbers:
-            return False
-            
-    return True
-
-while True:
-
-    if num/2<1:
-        bi=str(int(num%2))+bi
-        break
-    else:
-        bi=str(int(num%2))+bi
-        num/=2
-    
-
-print("the binary form of your number is "+bi)
-
-
-# توضیح: تابعی بنویسید که یه عدد بگیره و معادل باینریش رو (به صورت رشته) برگردونه.
-
-
-
-# مفاهیم: حلقه‌ها، عملیات ریاضی، رشته‌ها.
-
-
-
-# حذف کاراکترهای تکراری
-
-
-
-
-
-# توضیح: برنامه‌ای بنویسید که یه رشته از کاربر بگیره و کاراکترهای تکراریش رو حذف کنه (مثلاً "hello" بشه "helo").
-word=str(input("please enter your word:"))
-alpha=[]
-new_word=""
-for i in word:
-    if i in alpha:
-        continue
-    else:
-        alpha.append(i)
-        new_word+=i
-print(new_word)
-
-# مفاهیم: رشته‌ها، حلقه‌ها، لیست‌ها.
-
-
-
-# محاسبه توان عدد
-def  power( num, power):
-    for i in range (int(power)):
-        num*=num
-
-
-
-
-
-# توضیح: تابعی بنویسید که یه عدد و توانش رو از کاربر بگیره و نتیجه رو بدون استفاده از عملگر ** حساب کنه.
-
-
-
-# مفاهیم: حلقه‌ها، توابع، عملیات ریاضی.
+omid = Wallet("omid", 1.23)
+print(omid.add_money(2))
+print(omid.spend_money(6))
