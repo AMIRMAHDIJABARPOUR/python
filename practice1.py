@@ -151,21 +151,144 @@
 #  tenth project
 
 
-def my_decorator(func):
-    def wrapper(*args, **kwargs):
-        print(f" args : {args} & kwargs : {kwargs}")
-        print(func(*args, **kwargs))
-        print(f" end of {func.__name__} function")
+# def my_decorator(func):
+#     def wrapper(*args, **kwargs):
+#         print(f" args : {args} & kwargs : {kwargs}")
+#         print(func(*args, **kwargs))
+#         print(f" end of {func.__name__} function")
 
-    return wrapper
-
-
-@my_decorator
-def plus(*args):
-    Total = 0
-    for num in args:
-        Total += num
-    return Total
+#     return wrapper
 
 
-plus(2, 4, 6, 3, 5, 1, 2)
+# @my_decorator
+# def plus(*args):
+#     Total = 0
+#     for num in args:
+#         Total += num
+#     return Total
+
+
+# plus(2, 4, 6, 3, 5, 1, 2)
+
+
+# Eleventh project
+
+
+# class School:
+#     name = "Azad"
+
+#     @classmethod
+#     def get_name(cls):
+#         return cls.name
+
+
+# print(School.get_name())
+
+# twelfth
+
+
+# class Math:
+#     def __init__(self, number):
+#         self.number = number
+
+#     @staticmethod
+#     def Calculator(num):
+#         if num % 2 == 0:
+#             return f"{num} is odd number "
+#         else:
+#             return f"{num} is Even number "
+
+
+# Big = Math(9023)
+# print(Math.Calculator(Big.number))
+
+
+# thirteenth projecct
+def Check_numbers(num):
+    if num < 0:
+        raise ValueError("The number must be greater than 0")
+    else:
+        return True
+
+
+# fourteenth
+
+
+class Box:
+    def __init__(self):
+        self.width = 0
+
+    @property
+    def get_width(self):
+        return self.width
+
+    @get_width.setter
+    def get_width(self, value):
+        value = int(input("Enter the width : "))
+        if value <= 0:
+            raise ValueError
+        self.width = value
+
+
+box1 = Box()
+box1.get_width = int(input("Enter the width : "))
+print(box1.get_width)
+
+# fifteenth project
+from abc import ABC, abstractmethod
+
+
+class Shape(ABC):
+    def __init__(self, width):
+        self.width = width
+
+    @abstractmethod
+    def area(self):
+        pass
+
+
+class Circle(Shape):
+    def __init__(self, width):
+        super().__init__(width)
+
+    def area(self):
+        return (self.width**2) * 3.14
+
+
+x = Circle(15)
+print(x.area())
+
+
+# sixteenth project
+class Animal:
+
+    def move(self):
+        return "Animal moving"
+
+
+class Fish(Animal):
+    def move(self):
+        return "swimming"
+
+
+class Tiger(Animal):
+    def move(self):
+        return "Running"
+
+
+# seven teenth project
+class Calculator:
+    def __init__(self):
+        self.Total = 0
+
+    def add(self, *args):
+        for i in args:
+            self.Total += i
+
+    def get(self):
+        return self.Total
+
+
+x = Calculator()
+x.add(12, 23, 4, 3312, 43, 4)
+print(x.get())
