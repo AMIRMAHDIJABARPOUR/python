@@ -1,19 +1,8 @@
-class Box:
-    def __init__(self):
-        self.width = 0  # ✅ Initialize width
+import requests
 
-    @property
-    def get_width(self):
-        return self.width  # ✅ Getter method
+param = {"id": 3}
+x = requests.get("https://jsonplaceholder.typicode.com/users", params=param)
 
-    @get_width.setter
-    def get_width(self, value):  # ✅ Fix: Correct setter syntax
-        if value <= 0:  # ✅ Validate input
-            raise ValueError("Width must be greater than 0")
-        self.width = value  # ✅ Assign new value
-
-
-# Usage:
-box1 = Box()
-box1.get_width = int(input("Enter the width: "))  # ✅ Correct setter usage
-print(box1.get_width)  # ✅ Retrieve the width
+if x.status_code == 200:
+    xj = x.json()
+    print(xj)
