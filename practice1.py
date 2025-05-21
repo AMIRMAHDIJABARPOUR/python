@@ -292,3 +292,35 @@ class Calculator:
 x = Calculator()
 x.add(12, 23, 4, 3312, 43, 4)
 print(x.get())
+
+
+def fuck_you():
+    print("fuck you")
+
+# eighteent project
+import requests
+class APIClient :
+    def __init__(self):
+        self.api = requests.get("https://jsonplaceholder.typicode.com")
+my_api=APIClient()
+
+try :
+    if my_api.api.status_code == 200 :
+        print(my_api.json())
+except requests.exceptions.RequestException as e
+    print(e)
+    
+# nineteenth project
+import requests
+
+my_api = requests.get("https://jsonplaceholder.typicode.com")
+if __name__ == "__main__":
+    for  user in my_api.json():
+        print (user["name"])
+# twentieth project
+import requests
+
+my_api = requests.get("https://jsonplaceholder.typicode.com")
+for user in my_api.json():
+    print("name : " + user["name"])
+    print("email : " + user["email"])
